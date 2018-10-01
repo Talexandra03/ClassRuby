@@ -102,10 +102,77 @@ end
 =end #Finalizacomentario
 
 #Hashes
-persona = {"nombre"=> "juan", "edad" => 24}
-puts persona ["edad"]
+#persona = {"nombre"=> "juan", "edad" => 24}
+#puts persona ["edad"]
 
-persona.each do |clave,valor|
-    puts "La clave es #{clave} y el valor es #{valor}"
+#persona.each do |clave,valor|
+#   puts "La clave es #{clave} y el valor es #{valor}"
+#end
+#Cuenta la catidad de pociciones en un has
+#puts persona.length 
+#puts persona.has_key?("edad")#indica si existe una llave dentrop de un hash
+#puts persona.keys
 
+#SIMBOLOS (Cadena de tex inmutables para definir usar ':')
+#persona = {nombre:"juan", edad:26}
+#puts persona[:nombre]
+
+#Métodos 
+#def cuadrado(numero)
+ #   return numero*numero
+#end
+#puts "ingresa un número:"
+#mi_numero:gets.chomp.to_f
+#puts "el cuadrado es: #{cuadrado(mi_numero)}"
+
+#def hola_personas(*personas)
+  #personas.each do |persona|
+ #   puts "Hola #{persona}"
+ #   end
+  #end
+
+  #gente = ['Jaime', 'Alberto', 'Pedro']
+ # hola_personas(*gente)
+  #El operador Splat convierte todos los parametros q enviemos en un arreglo dentro de un metodo
+#def suma (num1:0, num2:0)
+ #   return num1+num2
+   # end
+#puts suma(num2:4,)
+    #tambien permiten inicializar valores, este valor inicial, el metodo lo utiliza si no especificamos este parametro
+    
+#Clases y objetos   
+class Persona
+    #definir atrubito attr_accessor
+    attr_accessor :nombre,:edad
+    
+      def initialize (n,e)#Método initialize
+        self.nombre=n
+        self.edad =e
+       end
+
+    def saludar
+       puts "Hola"
+    end
+    #Herencia
+    class Alumno < Persona
+        attr_accessor :codigo
+        def estudiar
+                    puts "Estoy estudiando"
+        end
+    def saludar 
+        super #va a ejecutar el método  saludar de la clase padre
+        puts "profe"
+    end
 end
+
+#instancias
+#persona_uno=Persona.new("juan", 50)
+#persona_dos= Persona.new('maria', 25)
+#persona_uno.nombre='Juan'
+#persona_dos.nombre="Maria"
+#persona_dos.saludar
+#puts persona_uno.nombre
+#puts "La edad de la persona es#{persona_uno.edad}"
+
+alumno_uno = Alumno.new("Jaimito", 17)
+alumno_uno.estudiar
